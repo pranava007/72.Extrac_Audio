@@ -8,23 +8,18 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-import os
-from openai import OpenAI
+
+
 try:
     import streamlit as st
 except Exception:
     st = None
 
-
-
-
-# ---------- OpenAI ----------
 def _openai_client() -> OpenAI:
     key = (st.secrets.get("OPENAI_API_KEY") if st else None) or os.getenv("OPENAI_API_KEY", "")
     if not key:
         raise RuntimeError("OPENAI_API_KEY not set in secrets or environment.")
     return OpenAI(api_key=key)
-
   
 
 def get_completion_from_messages(messages, model="gpt-3.5-turbo", temperature=0, max_tokens=500):

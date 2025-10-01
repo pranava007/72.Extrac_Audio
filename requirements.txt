@@ -8,6 +8,7 @@ prolog==0.3.1
 openai==1.57.0
 SpeechRecognition==3.14.1
 pytube==15.0.0
+python-dotenv>=1.0.1
 
 # streamlit run app.py
 
