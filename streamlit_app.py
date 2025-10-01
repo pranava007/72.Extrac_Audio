@@ -19,9 +19,9 @@ st.title("English")
 
 # --- Inputs ---
 url = st.text_input("Enter Instagram Reel URL:", placeholder="https://www.instagram.com/reel/XXXXXX/")
-# with st.expander("Optional: Instagram login (reduces 403/rate-limit)"):
-#     ig_user = st.text_input("IG Username", value="")
-#     ig_pass = st.text_input("IG Password", value="", type="password")
+with st.expander("Optional: Instagram login (reduces 403/rate-limit)"):
+    ig_user = st.text_input("IG Username", value="")
+    ig_pass = st.text_input("IG Password", value="", type="password")
 
 col1, col2, col3, col4 = st.columns(4)
 dl  = col1.button("Download Reel")
@@ -32,7 +32,7 @@ clf = col4.button("Classify + English")
 # --- Step 1: Download ---
 if dl:
     try:
-        video = download_reel(url) #, ig_user, ig_pass)
+        video = download_reel(url, ig_user=ig_user, ig_pass=ig_pass)
         st.session_state["video_file"] = video
         st.success(f"Downloaded: {video}")
         st.video(video)
