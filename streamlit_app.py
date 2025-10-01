@@ -7,11 +7,11 @@ from ReelFuntionRR import (
 import requests
 from dotenv import load_dotenv
 load_dotenv()
-GAS_ENDPOINT = os.getenv("GAS_ENDPOINT", "")
+
 
 def append_to_sheet(video_link: str, text: str) -> dict:
     payload = {"videoLink": video_link.strip(), "text": text}
-    r = requests.post(GAS_ENDPOINT, json=payload, timeout=30)
+    r = requests.post("https://script.google.com/macros/s/AKfycbw_b0vobbcvOsLNYziW0oORyVsRGX1YTnxAYIqxHucFwTZditQiANsTlxLQMexXk35A/exec", json=payload, timeout=30)
     r.raise_for_status()
     return r.json()
 
