@@ -5,8 +5,9 @@ from ReelFuntionRR import (
     tamil_to_tanglish_auto, tamil_json_to_tanglish_auto
 )
 import requests
-
-GAS_ENDPOINT = st.secrets.get("GAS_ENDPOINT", "")
+from dotenv import load_dotenv
+load_dotenv()
+GAS_ENDPOINT = os.getenv("GAS_ENDPOINT", "")
 
 def append_to_sheet(video_link: str, text: str) -> dict:
     payload = {"videoLink": video_link.strip(), "text": text}

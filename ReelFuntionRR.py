@@ -5,6 +5,7 @@ from moviepy.editor import VideoFileClip
 import speech_recognition as sr
 from openai import OpenAI
 from dotenv import load_dotenv
+
 load_dotenv()
 
 # ---------- OpenAI ----------
