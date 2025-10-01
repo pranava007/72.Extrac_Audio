@@ -1,0 +1,14 @@
+streamlit==1.38.0
+instaloader==4.14.0
+pocketsphinx==5.0.4
+moviepy==1.0.3
+imageio>=2.34
+imageio-ffmpeg>=0.4.2
+prolog==0.3.1
+openai==1.57.0
+SpeechRecognition==3.14.1
+pytube==15.0.0
+
+# streamlit run app.py
+
+# audioextra\Scripts\activate

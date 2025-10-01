@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+audioextra/
+.venv/
+.env
+.streamlit/secrets.toml
+reels_download/
+*.wav
+*.mp3
+*.mp4
+*.csv
