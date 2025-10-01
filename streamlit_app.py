@@ -5,8 +5,7 @@ from ReelFuntionRR import (
     tamil_to_tanglish_auto, tamil_json_to_tanglish_auto
 )
 import requests
-from dotenv import load_dotenv
-load_dotenv()
+
 
 
 def append_to_sheet(video_link: str, text: str) -> dict:
