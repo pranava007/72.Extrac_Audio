@@ -25,9 +25,7 @@ def _openai_client() -> OpenAI:
         raise RuntimeError("OPENAI_API_KEY not set in secrets or environment.")
     return OpenAI(api_key=key)
 
-    if not key:
-        raise RuntimeError("OPENAI_API_KEY not set in environment.")
-    return OpenAI(api_key=key)
+  
 
 def get_completion_from_messages(messages, model="gpt-3.5-turbo", temperature=0, max_tokens=500):
     resp = _openai_client().chat.completions.create(
