@@ -8,9 +8,23 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+import os
+from openai import OpenAI
+try:
+    import streamlit as st
+except Exception:
+    st = None
+
+
+
+
 # ---------- OpenAI ----------
 def _openai_client() -> OpenAI:
-    key = os.getenv("OPENAI_API_KEY", "")
+    key = (st.secrets.get("OPENAI_API_KEY") if st else None) or os.getenv("OPENAI_API_KEY", "")
+    if not key:
+        raise RuntimeError("OPENAI_API_KEY not set in secrets or environment.")
+    return OpenAI(api_key=key)
+
     if not key:
         raise RuntimeError("OPENAI_API_KEY not set in environment.")
     return OpenAI(api_key=key)
